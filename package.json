@@ -1,0 +1,16 @@
+{
+  "name": "last-man-standing",
+  "version": "1.0.0",
+  "description": "A web app to manage the Last Man Standing game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "tonyn96",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
