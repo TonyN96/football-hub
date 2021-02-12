@@ -2,7 +2,7 @@ var express = require("express");
 var path = require("path");
 var routes = require("./routes");
 var app = express();
-const exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 
 app.engine(
     ".hbs",
