@@ -7,16 +7,20 @@ const dashboard = {
     async index(req, res, next) {
 
         let currentGameweek;
+        let teamCrests = [];
 
         //Getting current gameweek
-        await axios.get(`https://api.football-data.org/v2/competitions/PL/`,{
+        await axios.get(`https://api.football-data.org/v2/competitions/PL/teams`,{
             headers: {
                 "X-Auth-Token": "ef1ee02e332f436b9321f666e0dd9ae2"
             }
         })
         .then((response) => {
             let competitionData = response.data;
-            currentGameweek = competitionData.currentSeason.currentMatchday;
+            currentGameweek = competitionData.season.currentMatchday;
+            for (let x = 0; x < competitionData.teams.length; x++) {
+                teamCrests.push(competitionData.teams[x].crestUrl);
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -54,6 +58,7 @@ const dashboard = {
                 fixtures.push(fixture);
             }
             const viewData = {
+                teamCrests: teamCrests,
                 gameweek: currentGameweek,
                 fixtureList: fixtures
             }

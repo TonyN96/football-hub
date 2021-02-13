@@ -1,15 +1,14 @@
 <header>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
         <div class="container d-flex justify-content-between">
             <a class="navbar-brand" href="#">Football Hub</a>
             <div>
                 <ul class="nav navbar-nav">
+                    {{#each teamCrests}}
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="#"><img src="{{this}}" width="35" height="35"></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
+                    {{/each}}
             </div>
         </div>
     </div>
