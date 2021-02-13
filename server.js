@@ -16,6 +16,8 @@ app.set("port", process.env.PORT || 3000);
 
 app.set("view engine", ".hbs");
 
+app.use(express.static('public'));
+
 app.use("/", routes);
 
 app.listen(app.get("port")), function() {

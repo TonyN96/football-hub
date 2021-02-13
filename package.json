@@ -1,7 +1,7 @@
 {
-  "name": "last-man-standing",
+  "name": "football-hub",
   "version": "1.0.0",
-  "description": "A web app to manage the Last Man Standing game",
+  "description": "A web app for displaying the latest football statistics and matches.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
