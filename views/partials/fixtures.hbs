@@ -1,0 +1,17 @@
+<div class="row text-center p-4 text-light"><h2>Gameweek {{gameweek}}</h2></div>
+<table class="table table-striped table-dark" id="fixture-list">
+        <thead>
+            <th style="text-align: right;">Home</th>
+            <th></th>
+            <th>Away</th>
+        </thead>
+        <tbody>
+        {{#each fixtureList}}
+        <tr>
+            <td style="text-align: right;">{{homeTeam}}</td>
+            <td style="text-align: center;">{{result}}</td>
+            <td>{{awayTeam}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+</table>

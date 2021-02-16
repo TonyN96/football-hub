@@ -2,6 +2,7 @@
 
 const logger = require("../utils/logger");
 const axios = require('axios');
+const auth_token = process.env.X_AUTH_TOKEN;
 
 const dashboard = {
     async index(req, res, next) {
@@ -12,7 +13,7 @@ const dashboard = {
         //Getting current gameweek and team crests
         await axios.get(`https://api.football-data.org/v2/competitions/PL/teams`,{
             headers: {
-                "X-Auth-Token": "ef1ee02e332f436b9321f666e0dd9ae2"
+                "X-Auth-Token": auth_token
             }
         })
         .then((response) => {
@@ -30,7 +31,7 @@ const dashboard = {
         let standings = [];
         await axios.get(`https://api.football-data.org/v2/competitions/PL/standings`,{
             headers: {
-                "X-Auth-Token": "ef1ee02e332f436b9321f666e0dd9ae2"
+                "X-Auth-Token": auth_token
             }
         })
         .then((response) => {
@@ -53,7 +54,6 @@ const dashboard = {
                 }
                 standings.push(standingsTeam);
             }
-            console.log(standings);
         })
         .catch((error) => {
             console.log(error);
@@ -62,7 +62,7 @@ const dashboard = {
         //Getting fixtures for current gameweek
         await axios.get(`https://api.football-data.org/v2/competitions/PL/matches/?matchday=${currentGameweek}`,{
             headers: {
-                "X-Auth-Token": "ef1ee02e332f436b9321f666e0dd9ae2"
+                "X-Auth-Token": auth_token
             }
         })
         .then((response) => {
