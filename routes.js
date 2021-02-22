@@ -1,7 +1,9 @@
 var express = require("express");
 const router = express.Router();
-const dashboard = require('./controllers/dashboard');
+const standings = require('./controllers/standings');
+const fixtures = require('./controllers/fixtures');
 
-router.get("/", dashboard.index);
+router.get("/", standings.index);
+router.get("/fixtures", fixtures.index);
 
 module.exports = router;

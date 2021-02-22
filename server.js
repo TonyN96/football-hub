@@ -10,6 +10,23 @@ app.engine(
     exphbs({
         extname: ".hbs",
         defaultLayout: "main",
+        helpers: {
+            Win: function (result) {
+                if (result == "W") {
+                    return true
+                }
+            },
+            Draw: function (result) {
+                if (result == "D") {
+                    return true
+                }
+            },
+            Loss: function (result) {
+                if (result == "L") {
+                    return true
+                }
+            },
+        }
     })
 )
 

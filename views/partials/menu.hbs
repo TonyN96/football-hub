@@ -1,15 +1,20 @@
-<header>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
-        <div class="container d-flex justify-content-between">
-            <a class="navbar-brand" href="#">Football Hub</a>
-            <div>
-                <ul class="nav navbar-nav">
-                    {{#each teamCrests}}
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><img src="{{this}}" width="35" height="35"></a>
-                    </li>
-                    {{/each}}
-            </div>
+<header class="header p-3">
+    <div>
+        <div class="container col-12 text-center">
+            <h1 class="display-3 text-light">Football Hub</h1>
         </div>
     </div>
 </header>
+<div class="navbar navbar-expand-lg navbar-dark bg-dark "></div>
+    <div class="container">
+        <ul class="nav d-flex justify-content-center pb-5">
+            <li class="nav-item"><a id="standings" class="nav-link" href="/"><h4>Standings</h4></a></li>
+            <li class="nav-item"><a id="fixtures" class="nav-link" href="/fixtures"><h4>Fixtures</h4></a></li>
+            <li class="nav-item"><a id="stats" class="nav-link" href="/stats"><h4>Stats</h4></a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+  $("#{{id}}").addClass("active");
+</script>

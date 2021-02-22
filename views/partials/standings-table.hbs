@@ -1,0 +1,40 @@
+<table class="table table-striped table-dark" id="fixture-list">
+    <thead>
+        <th>Position</th>
+        <th></th>
+        <th>Club</th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Drawn</th>
+        <th>Lost</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>GD</th>
+        <th>Points</th>
+        <th>Form</th>
+    </thead>
+    <tbody>
+    {{#each standings}}
+    <tr>
+        <td>{{position}}</td>
+        <td><img src="img/crests/{{teamName}}.png" height="25" width="25"></td>
+        <td>{{teamName}}</td>
+        <td>{{playedGames}}</td>
+        <td>{{wins}}</td>
+        <td>{{draws}}</td>
+        <td>{{lost}}</td>
+        <td>{{goalsFor}}</td>
+        <td>{{goalsAgainst}}</td>
+        <td>{{goalDifference}}</td>
+        <td><b>{{points}}</b></td>
+        <td>
+            {{#each form}}
+                {{#if (Win this)}} <li class="form-item" style="background: #13cf00;">W</li> {{/if}}
+                {{#if (Draw this)}} <li class="form-item" style="background: #76766f;">D</li> {{/if}}
+                {{#if (Loss this)}} <li class="form-item" style="background: #d81920;">L</li> {{/if}}
+            {{/each}}
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>

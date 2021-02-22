@@ -4,9 +4,8 @@ const logger = require("../utils/logger");
 const axios = require('axios');
 const auth_token = process.env.X_AUTH_TOKEN;
 
-const dashboard = {
+const fixtures = {
     async index(req, res, next) {
-
         let currentGameweek;
         let teamCrests = [];
 
@@ -26,38 +25,6 @@ const dashboard = {
         .catch((error) => {
             console.log(error);
         }); 
-
-        //Getting league standing
-        let standings = [];
-        await axios.get(`https://api.football-data.org/v2/competitions/PL/standings`,{
-            headers: {
-                "X-Auth-Token": auth_token
-            }
-        })
-        .then((response) => {
-            let standingsData = response.data.standings[0].table;
-            for (let x = 0; x < standingsData.length; x++) {
-                let teamName = standingsData[x].team.name;
-                if (teamName.includes(" FC")) {
-                    teamName = teamName.replace(" FC", "");
-                }
-                let standingsTeam = {
-                    position: standingsData[x].position,
-                    crestUrl: standingsData[x].team.crestUrl,
-                    teamName: teamName,
-                    playedGames: standingsData[x].playedGames,
-                    wins: standingsData[x].won,
-                    draws: standingsData[x].draw,
-                    lost: standingsData[x].lost,
-                    goalDifference: standingsData[x].goalDifference,
-                    points: standingsData[x].points,
-                }
-                standings.push(standingsTeam);
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        });
 
         //Getting fixtures for current gameweek
         await axios.get(`https://api.football-data.org/v2/competitions/PL/matches/?matchday=${currentGameweek}`,{
@@ -93,9 +60,15 @@ const dashboard = {
                 if (homeTeam.includes(" FC")) {
                     homeTeam = homeTeam.replace(" FC", "");
                 }
+                if (homeTeam == "Brighton & Hove Albion") {
+                    homeTeam = "Brighton";
+                }
                 let awayTeam = fixtureData[x].awayTeam.name;
                 if (awayTeam.includes(" FC")) {
                     awayTeam = awayTeam.replace(" FC", "");
+                }
+                if (awayTeam == "Brighton & Hove Albion") {
+                    awayTeam = "Brighton";
                 }
 
                 //Creating object containing fixture data
@@ -111,18 +84,15 @@ const dashboard = {
 
             //Creating object containing data to be rendered
             const viewData = {
-                teamCrests: teamCrests,
                 gameweek: currentGameweek,
                 fixtureList: fixtures,
-                standings: standings
             }
-            res.render("dashboard", viewData);
+            res.render("fixtures", viewData);
         })
         .catch((error) => {
             console.log(error);
-        }); 
-         
+        });
     }
 }
 
-module.exports = dashboard;
+module.exports = fixtures;
