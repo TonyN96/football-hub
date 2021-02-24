@@ -1,14 +1,14 @@
 {
   "name": "football-hub",
   "version": "1.0.0",
-  "description": "A web app for displaying the latest football statistics and matches.",
+  "description": "A web app for displaying the latest standings, results and top scorers in the English Premier League",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "tonyn96",
+  "author": "TonyN96",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

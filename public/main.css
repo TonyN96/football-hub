@@ -1,3 +1,6 @@
+@charset "utf-8";
+/* CSS DOCUMENT */
+
 .form-item {
     height: 30px;
     width: 30px;
@@ -6,4 +9,16 @@
     text-align: center;
     display: inline-block;
     vertical-align: middle;
+}
+
+a {
+    color: gray;
+}
+
+a:hover {
+    color: white;
+}
+
+a.active {
+    color: white;
 }

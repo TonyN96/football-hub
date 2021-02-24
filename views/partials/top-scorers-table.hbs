@@ -1,0 +1,22 @@
+<table class="table table-striped table-dark table-hover" id="top-scorers-list">
+    <thead>
+        <tr class="row">
+            <th class="col-sm-1">Position</th>
+            <th class="col-sm-3">Player</th>
+            <th class="col-sm-3">Club</th>
+            <th class="col-sm-4">Nationality</th>
+            <th class="col-sm-1">Goals</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each topScorers}}
+    <tr class="row">
+        <td class="col-sm-1">{{position}}</td>
+        <td class="col-sm-3">{{playerName}}</td>
+        <td class="col-sm-3"><img src="img/crests/{{teamName}}.png" height="25" width="25" style="margin-right: 10px;">{{teamName}}</td>
+        <td class="col-sm-4">{{nationality}}</td>
+        <td class="col-sm-1">{{goals}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>

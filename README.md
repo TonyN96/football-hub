@@ -1,6 +1,6 @@
 # Football Hub
 
-A  Node.js app for displaying the latest results and standings in the English Premier League.
+A  Node.js app for displaying the latest standings, results and top scorers in the English Premier League.
 
 The app's data is gathered used the API provided by [football-data.org](https://www.football-data.org/).
 
